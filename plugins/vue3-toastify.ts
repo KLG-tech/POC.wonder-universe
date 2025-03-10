@@ -4,10 +4,11 @@ import "vue3-toastify/dist/index.css";
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(Vue3Toastify, {
     autoClose: 2000,
-    theme: "dark",
+    theme: "auto",
     type: "default",
-    position: "bottom-right",
-    transition: "slide",
+    position: "top-right",
+    transition: "zoom",
+    dangerouslyHTMLString: true
   });
 
   return {

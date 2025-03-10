@@ -11,7 +11,7 @@ const props = withDefaults(
     min: 0,
     max: 100,
     step: 1,
-    width: "w-10"
+    width: "w-12"
   }
 );
 
@@ -44,7 +44,7 @@ const decrease = () => {
   <div class="flex items-center" >
     <button
       @click="decrease"
-      class="font-bold w-7 h-7 flex items-center justify-center bg-wonder-orange text-white rounded-l-lg hover:bg-orange-600 transition-colors"
+      class="font-bold w-9 h-9 flex items-center justify-center bg-wonder-orange text-white rounded-l-lg hover:bg-orange-600 transition-colors"
       :disabled="modelValue <= min"
     >
       -
@@ -53,7 +53,7 @@ const decrease = () => {
       type="number"
       :value="modelValue"
       @input="updateValue($event)"
-      class="text-center border-y border-gray-300 h-7 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+      class="text-center border-y border-gray-300 h-9 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
       :class="width"
       :min="min"
       :max="max"
@@ -61,7 +61,7 @@ const decrease = () => {
     />
     <button
       @click="increase"
-      class="font-bold w-7 h-7 flex items-center justify-center bg-wonder-orange text-white rounded-r-lg hover:bg-orange-600 transition-colors"
+      class="font-bold w-9 h-9 flex items-center justify-center bg-wonder-orange text-white rounded-r-lg hover:bg-orange-600 transition-colors"
       :disabled="modelValue >= max"
     >
       +
