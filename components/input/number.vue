@@ -41,7 +41,7 @@ const decrease = () => {
 </script>
 
 <template>
-  <div class="flex items-center w-full" >
+  <div class="flex items-center" >
     <button
       @click="decrease"
       class="font-bold w-7 h-7 flex items-center justify-center bg-wonder-orange text-white rounded-l-lg hover:bg-orange-600 transition-colors"
@@ -61,7 +61,7 @@ const decrease = () => {
     />
     <button
       @click="increase"
-      class="font-bold w-7 h-7 flex items-center justify-center bg-orange-500 text-white rounded-r-lg hover:bg-orange-600 transition-colors"
+      class="font-bold w-7 h-7 flex items-center justify-center bg-wonder-orange text-white rounded-r-lg hover:bg-orange-600 transition-colors"
       :disabled="modelValue >= max"
     >
       +
