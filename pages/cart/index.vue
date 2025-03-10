@@ -84,11 +84,27 @@ function doDelete() {
   isShowDialog.value = false;
   useNuxtApp().$toast(`<b>Item berhasil dihapus!</b>`);
 }
+
+function proceedToPayment() {
+  setWithExpiry('cart_payment', tempCart.value, 5)
+  navigateTo('/cart/payment')
+} 
+
+function checkCart() {
+  const test = getWithExpiry('cart')
+
+  console.log("test", test)
+  if (Boolean(test)){
+    useNuxtApp().$toast.success(`<b>Still available!</b>`);
+  } else {
+    useNuxtApp().$toast.error(`<b>Expired!</b>`);
+  }
+}
 </script>
 <template>
   <div class="flex flex-col gap-4 h-[100vh] px-6 overflow-auto">
-    <div>
-      <NuxtImg src="/img/logo/backwhite.png" class="!w-[30vw] mx-auto" />
+    <div @click="checkCart()">
+      <NuxtImg src="/img/logo/backwhite.png" class="w-[25vw] sm:!w-[30vw] mx-auto" />
     </div>
     <div class="bg-wonder-orange w-full h-1 rounded-full"></div>
     <div class="flex flex-col gap-6 overflow-auto h-[60vh]">
@@ -135,14 +151,16 @@ function doDelete() {
         </div>
       </div>
       <div class="flex flex-row gap-4 items-center justify-center p-4">
-        <button
-          class="w-[190px] sm:w-[210px] py-2 rounded-md bg-wonder-kidsRed text-white font-bold"
-        >
+        <NuxtLink
+          class="w-[190px] sm:w-[210px] py-2 rounded-md bg-wonder-kidsRed text-white font-bold text-center"
+          to="/products"
+          >
           Kembali
-        </button>
+        </NuxtLink>
         <button
           class="w-[190px] sm:w-[210px] py-2 rounded-md bg-wonder-orange text-white font-bold"
-        >
+          @click="proceedToPayment()"
+          >
           Lanjut ke Pembayaran
         </button>
       </div>
